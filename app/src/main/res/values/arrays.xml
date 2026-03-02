@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="semesters_array">
+        <item>1st Semester 2024-2025</item>
+        <item>2nd Semester 2024-2025</item>
+        <item>Summer 2024</item>
+    </string-array>
+    <string-array name="subjects_array">
+        <item>Mobile App Development (IT 312)</item>
+        <item>Database Administration (IT 311)</item>
+        <item>Information Assurance &amp; Security (IT 313)</item>
+        <item>Capstone Project 1 (IT 314)</item>
+    </string-array>
+</resources>
