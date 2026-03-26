@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark">
 
-    <!-- 1. The Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,11 +17,11 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Top Welcome Header -->
             <TextView
+                android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/student_dashboard"
+                android:text="Welcome, Student!"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/teal_accent"/>
@@ -30,12 +29,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/welcome_student"
+                android:text="Stay updated with your activities."
                 android:textSize="15sp"
                 android:textColor="@color/text_gray"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- 4 Stat Boxes -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +42,6 @@
                 android:alignmentMode="alignMargins"
                 android:columnOrderPreserved="false">
 
-                <!-- Enrolled Subjects -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardEnrolledSubjects"
                     android:layout_width="0dp"
@@ -53,11 +50,9 @@
                     android:layout_margin="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
-                    app:strokeWidth="0dp"
                     app:cardBackgroundColor="@color/card_dark"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:focusable="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -74,14 +69,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/enrolled_subjects"
+                            android:text="Enrolled"
                             android:textSize="12sp"
-                            android:textColor="@color/text_white"
-                            android:gravity="center"/>
+                            android:textColor="@color/text_white"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Pending Activities -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardPendingTasks"
                     android:layout_width="0dp"
@@ -90,11 +83,9 @@
                     android:layout_margin="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
-                    app:strokeWidth="0dp"
                     app:cardBackgroundColor="@color/card_dark"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:focusable="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -111,14 +102,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/pending_tasks"
+                            android:text="Tasks"
                             android:textSize="12sp"
-                            android:textColor="@color/text_white"
-                            android:gravity="center"/>
+                            android:textColor="@color/text_white"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Average Grades -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardAvgGrade"
                     android:layout_width="0dp"
@@ -127,11 +116,9 @@
                     android:layout_margin="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
-                    app:strokeWidth="0dp"
                     app:cardBackgroundColor="@color/card_dark"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:focusable="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -148,14 +135,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/avg_grade"
+                            android:text="Avg Grade"
                             android:textSize="12sp"
-                            android:textColor="@color/text_white"
-                            android:gravity="center"/>
+                            android:textColor="@color/text_white"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Balance Due -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -163,7 +148,6 @@
                     android:layout_margin="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
-                    app:strokeWidth="0dp"
                     app:cardBackgroundColor="@color/card_dark">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -172,28 +156,28 @@
                         android:padding="20dp"
                         android:gravity="center">
                         <TextView
+                            android:id="@+id/balanceText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₱12,400"
+                            android:text="₱0"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             android:textColor="#FF9800"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/balance_due"
+                            android:text="Balance Due"
                             android:textSize="12sp"
-                            android:textColor="@color/text_white"
-                            android:gravity="center"/>
+                            android:textColor="@color/text_white"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
             </GridLayout>
 
-            <!-- Middle Section: Upcoming Class -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/upcoming_class"
+                android:text="Upcoming Class"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_white"
@@ -205,8 +189,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
+                app:cardElevation="0dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,63 +198,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/mobile_app_dev"
+                        android:text="Mobile App Development"
                         android:textColor="@color/teal_accent"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/room_info"
+                        android:text="10:00 AM - 12:00 PM | Room 404"
                         android:textColor="@color/text_white"
                         android:layout_marginTop="4dp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Lower Part: Announcements -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/recent_announcements"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_white"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="12dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/maintenance_notice"
-                        android:textStyle="bold"
-                        android:textColor="@color/teal_accent"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/maintenance_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_white"
-                        android:layout_marginTop="8dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Navigation Bar at the Bottom -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -282,7 +224,6 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/teal_accent"
         app:itemTextColor="@color/text_white"
-        app:labelVisibilityMode="labeled"
-        app:itemActiveIndicatorColor="@android:color/transparent" />
+        app:labelVisibilityMode="labeled" />
 
 </RelativeLayout>

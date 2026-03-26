@@ -24,40 +24,23 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".Studentdashboard"
-            android:exported="false" />
-        <activity
-            android:name=".Teacherdashboard"
-            android:exported="false" />
-        <activity
-            android:name=".Admindashboard"
-            android:exported="false" />
-        <activity
-            android:name=".ScheduleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GradesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MessagesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AnnouncementsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SubjectsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TasksActivity"
-            android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".Studentdashboard" android:exported="false" />
+        <activity android:name=".Teacherdashboard" android:exported="false" />
+        <activity android:name=".Admindashboard" android:exported="false" />
+        <activity android:name=".ScheduleActivity" android:exported="false" />
+        <activity android:name=".GradesActivity" android:exported="false" />
+        <activity android:name=".MessagesActivity" android:exported="false" />
+        <activity android:name=".AnnouncementsActivity" android:exported="false" />
+        <activity android:name=".ProfileActivity" android:exported="false" />
+        <activity android:name=".SubjectsActivity" android:exported="false" />
+        <activity android:name=".TasksActivity" android:exported="false" />
+        
+        <!-- Teacher Specific -->
+        <activity android:name=".TeacherStudentsActivity" android:exported="false" />
+        <activity android:name=".PostAnnouncementActivity" android:exported="false" />
+        <activity android:name=".ViewSubmissionsActivity" android:exported="false" />
+        <activity android:name=".GradebookActivity" android:exported="false" />
 
     </application>
 </manifest>

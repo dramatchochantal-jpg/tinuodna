@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark">
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -48,7 +47,6 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Selection Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +85,6 @@
                 android:entries="@array/subjects_array"
                 android:spinnerMode="dropdown"/>
 
-            <!-- Student Grading List -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,101 +93,72 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp"/>
 
-            <!-- Sample Student 1 -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- Grade Submission Section -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                android:layout_marginBottom="8dp">
-                <LinearLayout
+                android:hint="Student UID"
+                app:boxBackgroundColor="@color/card_dark"
+                app:hintTextColor="@color/teal_accent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etStudentId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Juan Dela Cruz"
-                        android:textColor="@color/text_white"/>
-                    <EditText
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0.0"
-                        android:textColorHint="@color/text_gray"
-                        android:textColor="@color/teal_accent"
-                        android:inputType="numberDecimal"
-                        android:background="@android:drawable/edit_text"
-                        android:gravity="center"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                    android:textColor="@color/text_white"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Sample Student 2 -->
-            <com.google.android.material.card.MaterialCardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                android:layout_marginBottom="8dp">
-                <LinearLayout
+                android:layout_marginTop="8dp"
+                android:hint="Subject"
+                app:boxBackgroundColor="@color/card_dark"
+                app:hintTextColor="@color/teal_accent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSubject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Maria Clara"
-                        android:textColor="@color/text_white"/>
-                    <EditText
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0.0"
-                        android:textColorHint="@color/text_gray"
-                        android:textColor="@color/teal_accent"
-                        android:inputType="numberDecimal"
-                        android:background="@android:drawable/edit_text"
-                        android:gravity="center"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                    android:textColor="@color/text_white"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Sample Student 3 -->
-            <com.google.android.material.card.MaterialCardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                android:layout_marginBottom="8dp">
-                <LinearLayout
+                android:layout_marginTop="8dp"
+                android:hint="Grade"
+                app:boxBackgroundColor="@color/card_dark"
+                app:hintTextColor="@color/teal_accent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGrade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Jose Rizal"
-                        android:textColor="@color/text_white"/>
-                    <EditText
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0.0"
-                        android:textColorHint="@color/text_gray"
-                        android:textColor="@color/teal_accent"
-                        android:inputType="numberDecimal"
-                        android:background="@android:drawable/edit_text"
-                        android:gravity="center"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmitGrade"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:text="Submit New Grade"
+                app:backgroundTint="@color/teal_accent"
+                android:textColor="@color/bg_dark"
+                app:cornerRadius="12dp"/>
+
+            <TextView
+                android:id="@+id/tvGradesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="No Grades."
+                android:textColor="@color/text_white"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginTop="16dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSaveGrades"
@@ -201,7 +169,8 @@
                 app:backgroundTint="@color/teal_accent"
                 android:textColor="@color/bg_dark"
                 app:cornerRadius="12dp"
-                android:layout_marginBottom="24dp"/>
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </ScrollView>
@@ -216,7 +185,6 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/teal_accent"
         app:itemTextColor="@color/text_white"
-        app:labelVisibilityMode="labeled"
-        app:itemActiveIndicatorColor="@android:color/transparent" />
+        app:labelVisibilityMode="labeled" />
 
 </RelativeLayout>

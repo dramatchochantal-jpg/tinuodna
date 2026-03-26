@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark">
 
-    <!-- Header with Back Arrow -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -54,9 +53,25 @@
                 android:text="Activities &amp; Assignments"
                 android:textSize="14sp"
                 android:textColor="@color/text_gray"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvPendingCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Pending: "
+                android:textColor="@color/text_white"
+                android:textSize="14sp"/>
+            
+            <TextView
+                android:id="@+id/tvPendingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/teal_accent"
+                android:textStyle="bold"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Task List -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,56 +80,15 @@
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/card_dark"
                 android:layout_marginBottom="12dp">
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvTasksList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
-                    android:orientation="vertical">
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Quiz 1: Firebase Auth" 
-                        android:textStyle="bold" 
-                        android:textColor="@color/teal_accent"
-                        android:textSize="18sp"/>
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Mobile App Dev | Due: Today" 
-                        android:textColor="@color/text_white"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp"
-                app:cardBackgroundColor="@color/card_dark"
-                android:layout_marginBottom="12dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:orientation="vertical">
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Lab Report: Normalization" 
-                        android:textStyle="bold" 
-                        android:textColor="@color/teal_accent"
-                        android:textSize="18sp"/>
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Database Admin | Due: Friday" 
-                        android:textColor="@color/text_white"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp"/>
-                </LinearLayout>
+                    android:text="Loading tasks..."
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="8dp"/>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>

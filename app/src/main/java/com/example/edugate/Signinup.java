@@ -19,8 +19,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Signinup extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailInput, passwordInput;
-    private Button btnAction;
-    private TextView tvForgotPassword;
     private RadioGroup roleGroup;
 
     @Override
@@ -32,9 +30,9 @@ public class Signinup extends AppCompatActivity {
 
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
-        btnAction = findViewById(R.id.btnAction);
-        tvForgotPassword = findViewById(R.id.tvForgotPassword);
         roleGroup = findViewById(R.id.roleGroup);
+        Button btnAction = findViewById(R.id.btnAction);
+        TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
         btnAction.setOnClickListener(v -> handleLogin());
         tvForgotPassword.setOnClickListener(v -> handleForgotPassword());
@@ -54,7 +52,7 @@ public class Signinup extends AppCompatActivity {
         String uiRole = selectedRadioButton.getText().toString().trim();
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Pun-a ang email ug password!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -63,38 +61,34 @@ public class Signinup extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         verifyUserRole(uiRole);
                     } else {
-                        Toast.makeText(Signinup.this, "Auth Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        // ❌ FAILED - ipakita ang exact error
+                        String errorMsg = task.getException() != null ? 
+                            task.getException().getMessage() : "Unknown error";
+                        Toast.makeText(Signinup.this, "Error: " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
     private void verifyUserRole(String uiRole) {
-        String userId = mAuth.getCurrentUser().getUid();
+        String userId = mAuth.getCurrentUser() != null ? mAuth.getCurrentUser().getUid() : null;
+        if (userId == null) return;
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        // Check "Users" collection
         db.collection("Users").document(userId).get().addOnCompleteListener(task -> {
             if (task.isSuccessful() && task.getResult().exists()) {
                 checkRoleMatch(task.getResult(), uiRole);
             } else {
-                // Fallback: Check lowercase "users" collection
-                db.collection("users").document(userId).get().addOnCompleteListener(task2 -> {
-                    if (task2.isSuccessful() && task2.getResult().exists()) {
-                        checkRoleMatch(task2.getResult(), uiRole);
-                    } else {
-                        String error = "No database entry for UID: " + userId + "\nMake sure collection is 'Users' and Document ID is the UID.";
-                        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-                        Log.e("EduGateAuth", error);
-                        mAuth.signOut();
-                    }
-                });
+                String error = "No database entry for UID: " + userId;
+                Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+                mAuth.signOut();
             }
         });
     }
 
     private void checkRoleMatch(DocumentSnapshot document, String uiRole) {
         String dbRole = document.getString("role");
-        if (dbRole == null) dbRole = document.getString("Role"); // Try alternative casing
+        if (dbRole == null) dbRole = document.getString("Role");
 
         if (dbRole != null && uiRole.equalsIgnoreCase(dbRole.trim())) {
             navigateToDashboard(dbRole.trim());
@@ -102,21 +96,6 @@ public class Signinup extends AppCompatActivity {
             String msg = "Role Mismatch! You selected '" + uiRole + "' but DB says '" + dbRole + "'";
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
             mAuth.signOut();
-        }
-    }
-
-    private void handleForgotPassword() {
-        String email = emailInput.getText().toString().trim();
-        if (email.isEmpty()) {
-            Toast.makeText(this, "Enter email first", Toast.LENGTH_SHORT).show();
-        } else {
-            mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    Toast.makeText(this, "Reset email sent!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
         }
     }
 
@@ -132,7 +111,25 @@ public class Signinup extends AppCompatActivity {
             Toast.makeText(this, "Unknown role: " + role, Toast.LENGTH_SHORT).show();
             return;
         }
+        
+        // ✅ SUCCESS - proceed to Dashboard and clear stack
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    private void handleForgotPassword() {
+        String email = emailInput.getText().toString().trim();
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Enter email first", Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(this, "Reset email sent!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

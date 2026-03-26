@@ -56,7 +56,6 @@
                 android:textColor="@color/text_gray"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Subject List -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,56 +64,15 @@
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/card_dark"
                 android:layout_marginBottom="12dp">
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvSubjectsList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
-                    android:orientation="vertical">
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Mobile App Development" 
-                        android:textStyle="bold" 
-                        android:textColor="@color/teal_accent"
-                        android:textSize="18sp"/>
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="IT 312 | 3 Units" 
-                        android:textColor="@color/text_white"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp"
-                app:cardBackgroundColor="@color/card_dark"
-                android:layout_marginBottom="12dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:orientation="vertical">
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="Database Administration" 
-                        android:textStyle="bold" 
-                        android:textColor="@color/teal_accent"
-                        android:textSize="18sp"/>
-                    <TextView 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:text="IT 311 | 3 Units" 
-                        android:textColor="@color/text_white"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp"/>
-                </LinearLayout>
+                    android:text="Loading subjects..."
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="8dp"/>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>

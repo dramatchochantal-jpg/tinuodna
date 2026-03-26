@@ -21,11 +21,12 @@
             app:cardBackgroundColor="@color/card_dark"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_school" 
                 android:padding="20dp"
+                android:src="@drawable/ic_school"
                 app:tint="@color/teal_accent" />
         </com.google.android.material.card.MaterialCardView>
 

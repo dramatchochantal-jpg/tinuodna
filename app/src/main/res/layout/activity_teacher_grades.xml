@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark">
 
+    <!-- Header -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Post Announcement"
+            android:text="Submit Grade"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/teal_accent"
@@ -38,7 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/headerLayout"
-        android:layout_above="@+id/bottomNavigation"
         android:fillViewport="true">
 
         <LinearLayout
@@ -50,14 +50,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title"
+                android:hint="Student UID"
                 app:boxStrokeColor="@color/teal_accent"
                 app:hintTextColor="@color/teal_accent"
                 android:textColorHint="@color/text_gray"
                 app:boxBackgroundColor="@color/card_dark"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTitle"
+                    android:id="@+id/etStudentId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_white"/>
@@ -67,90 +67,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Content"
+                android:hint="Subject Name"
                 app:boxStrokeColor="@color/teal_accent"
                 app:hintTextColor="@color/teal_accent"
                 android:textColorHint="@color/text_gray"
                 app:boxBackgroundColor="@color/card_dark"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etContent"
+                    android:id="@+id/etSubject"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:gravity="top"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/text_white"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPost"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="24dp"
-                android:text="Post Now"
-                app:backgroundTint="@color/teal_accent"
-                android:textColor="@color/bg_dark"
-                app:cornerRadius="12dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Recent Posts"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_white"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="12dp"/>
-
-            <com.google.android.material.card.MaterialCardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardElevation="0dp"
-                android:layout_marginBottom="12dp">
-                <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:hint="Grade (e.g. 1.25)"
+                app:boxStrokeColor="@color/teal_accent"
+                app:hintTextColor="@color/teal_accent"
+                android:textColorHint="@color/text_gray"
+                app:boxBackgroundColor="@color/card_dark"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGrade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
-                    <TextView
-                        android:id="@+id/tvPostTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Final Exam Schedule"
-                        android:textStyle="bold"
-                        android:textColor="@color/teal_accent"
-                        android:textSize="16sp"/>
-                    <TextView
-                        android:layout_below="@id/tvPostTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dec 15, 2024"
-                        android:textColor="@color/text_gray"
-                        android:textSize="12sp"/>
-                    <ImageView
-                        android:id="@+id/btnDelete"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@android:drawable/ic_menu_delete"
-                        app:tint="#E53935"/>
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/teal_accent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmitGrade"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Submit Grade"
+                app:backgroundTint="@color/teal_accent"
+                android:textColor="@color/bg_dark"
+                app:cornerRadius="12dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/card_dark"
-        app:elevation="16dp"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/teal_accent"
-        app:itemTextColor="@color/text_white"
-        app:labelVisibilityMode="labeled" />
 
 </RelativeLayout>
